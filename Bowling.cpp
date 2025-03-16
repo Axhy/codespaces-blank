@@ -1,8 +1,11 @@
+//Console Application to count Bowling score for single player
+
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
+//Class to hold frame score
 class frame
 {
     private:
@@ -13,9 +16,13 @@ class frame
     bool spare;
     
     public :
+    //Constructor
     frame():try1(0),try2(0),frame_total(0),strike(false),spare(false) {}
+
+    //Dextructor
     ~frame(){}
-    
+
+    //first try score, set strike if score is 10
     void settry1(int val)
     {
         if(val == 10)
@@ -24,7 +31,8 @@ class frame
         }
         try1 = val;
     }
-    
+
+    //2nd try score, set spare if try 1 and try 2 total is 10
     void settry2(int val)
     {
         if(val+try1 == 10)
@@ -33,7 +41,8 @@ class frame
         }
         try2 = val;
     }
-    
+
+    //get functionalities
     int gettry1() {return try1;}
     int gettry2() {return try2;}
     int getframeTotal(){return frame_total;}
@@ -45,6 +54,7 @@ class frame
     }
 };
 
+//Input validation to check input is digit and return value
 int inputCheck(string s)
 {
     if (s.end() == std::find_if(s.begin(), s.end(),
@@ -59,6 +69,7 @@ int inputCheck(string s)
     }
 }
 
+//main code
 int main() 
 {
     string  strInput;
